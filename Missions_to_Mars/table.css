@@ -1,0 +1,9 @@
+.rTableCell {
+    border: 1px solid #999999;
+    float: left;
+    height: 17px;
+    overflow: hidden;
+    padding: 3px 1.8%;
+    width: 28%;
+ }
+ 

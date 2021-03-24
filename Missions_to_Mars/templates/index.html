@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Hot Finds</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="jumbotron text-center">
+      <h1>Mission To Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+
+    <!-- Mars Listings -->
+    <div class="row" id="mars-listings">
+      <div class="col-md-12">
+        <h3 class="heading" style="font-weight: bold">Latest Mars News</h3>
+        <h4>{{mars_dict.news_title}}</h4>
+        <small>{{mars_dict.news_p}}</small>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <div class="col-md-8">
+          <h3 class="heading" style="font-weight: bold; text-align: center;">Featured Mars Image</h3>
+          <img src="{{mars_dict.featured_image_url}}" alt="featured" width="687.5" height="550">
+        </div>
+        <div class="col-md-4">
+          <h3 class="heading" style="font-weight: bold; text-align: center;">Mars Facts</h3>
+          <div style="background-color:rgb(255, 166, 0);padding:10px;margin:10px;width:95%;display:table;">
+            {{mars_dict.mars_table | safe}}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="heading" style="font-weight: bold; text-align: center;">Mars Hemispheres</h3>
+          {% for i in mars_dict.hemisphere_image_urls %}
+            <div class="col-md-6">
+              <img src="{{i.img_url}}" alt="hemishpere" width="550" height="550">
+              <h4 class="footer" style="font-weight: bold; text-align: center;">{{i.title}}</h4>
+            </div>
+          {% endfor %}  
+      </div>
+    </div>  
+  </div>
+</body>
+
+</html>
+
